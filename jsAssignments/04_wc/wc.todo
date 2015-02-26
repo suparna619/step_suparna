@@ -1,0 +1,334 @@
+ACCEPTANCE TEST:
+
+
+1. 
+Verify "wc [FILE]" prints the line, words and byte-size for that file with tabs,ended with the file name.
+
+	input-----> wc one.txt
+
+	expected output-----> 2     10     48 one.txt
+	
+	where,
+	one.txt = [FILE]
+	2 = number of lines in one.txt
+	10 = number of words in one.txt
+	48 = byte-size of one.txt
+
+2. 
+Verify "wc [FILE] -c" prints the byte-size of that file, ended with the file name.
+
+	input------> wc one.txt -c
+	expected output------> 48 one.txt
+
+3. 
+Verify "wc [FILE] --bytes" prints the byte-size of that file, ended with the file name.
+
+	input------> wc one.txt --bytes
+	expected output------> 48 one.txt
+
+4. 
+Verify "wc [FILE] --chars" prints the byte-size of that file, ended with the file name.
+
+	input------> wc one.txt -chars
+	expected output------> 48 one.txt
+
+
+5. 
+Verify "wc [FILE] -l" prints the total number of new-lines of that file, ended with the file name.
+
+	input------> wc one.txt -l
+	expected output------> 2 one.txt
+
+
+6. 
+Verify "wc [FILE] --lines" prints the total number of new-lines of that file, ended with the file name.
+
+	input------> wc one.txt --lines
+	expected output------> 2 one.txt
+
+
+7. 
+Verify "wc [FILE] -L" prints the length of the longest of that file, ended with the file name.
+
+	input------> wc one.txt -L
+	expected output------> 26 one.txt
+
+
+8. 
+Verify "wc [FILE] --max-line-length" prints the length of the longest of that file, ended with the file name.
+
+	input------> wc one.txt --max-line-length
+	expected output------> 26 one.txt
+
+
+9. 
+Verify "wc [FILE] -w" prints the total number of words of that file, ended with the file name.
+
+	input------> wc one.txt -w
+	expected output------> 10 one.txt
+
+
+10. 
+Verify "wc [FILE] --words" prints the total number of words of that file, ended with the file name.
+
+	input------> wc one.txt --words
+	expected output------> 10 one.txt
+
+
+11. 
+Varify "wc --help" prints the using format of wc, define the working property of different operations and exit.
+
+	input-----> wc --help
+
+	expected output----->
+				Usage:  wc [OPTION]... [FILE]...
+					or
+					wc [FILE]... [OPTION]...
+				Print line, word, and byte counts for each FILE
+				and a total line if more than one FILE is specified.
+				With no FILE, or when FILE is -, read standard input.
+				Options: -c, --bytes, --chars   print the byte counts
+					 -l, --lines            print the newline counts
+  					 -L, --max-line-length  print the length of the longest line
+					 -w, --words            print the word counts
+					 --help             display this help and exit
+					 --version          output version information and exit
+
+
+12. 
+Verify "wc" read standerd input and after pressing ^d(Ctrl+d) prints the line, words and byte-size.
+
+	input----->  wc(press Enter)
+			abcd efgh
+			1234 5678
+			(^d)
+
+	expected output------>
+			2       4      20
+
+13. 
+Verify "wc -" read standerd input and after pressing ^d(Ctrl+d) prints the line, words and byte-size.
+
+	input----->  wc -(press Enter)
+			abcd
+			efgh
+			(^d)
+
+	expected output------>
+			2       2      10 -
+
+****************************************************-------------------------------------*******************************************************
+14. 
+Verify "wc --version" prints the version of installed Git Bash and exit.
+
+	input-----> wc --version
+
+	expected output----->
+				wc (GNU textutils) 2.0
+				Written by Paul Rubin and David MacKenzie.
+
+				Copyright (C) 1999 Free Software Foundation, Inc.
+				This is free software; see the source for copying conditions.  There is NO
+				warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+
+15. 
+Verify "wc [FILE1] [FILE2]" prints the line, words and byte-size for each file with tabs,ended with the file name
+   and also prints the total of lines, words and byte-size of all files.
+
+	input-----> wc one.txt two.txt
+
+	expected output-----> 
+				2      10      48 one.txt
+				2       3      18 two.txt
+				4      13      66 total
+
+
+16. 
+Verify "wc [FILE] -l -c" prints the number of lines and byte-size of that file maintaining a particular order, first lines then byte-size and ended with the file name.
+	input-----> wc -l -c
+
+	expected output-----> 2    48 one.txt
+
+
+
+17. 
+Verify "wc [FILE] -c -l" prints the number of lines and byte-size of that file maintaining a particular order, first lines then byte-size and ended with the file name.
+	input-----> wc -c -l
+
+	expected output-----> 2    48 one.txt
+
+
+18. 
+Verify "wc [FILE] -l -w" prints the number of lines and total number of words of that file maintaining a particular order, first lines then words and ended with the file name.
+
+	input-----> wc -l -w
+
+	expected output-----> 2    10 one.txt
+
+
+19. 
+Verify "wc [FILE] -w -l" prints the number of lines and total number of words of that file maintaining a particular order, first lines then words and ended with the file name.
+	input-----> wc -w -l
+
+	expected output-----> 2    10 one.txt
+
+
+20. 
+Verify "wc [FILE] -l -L" prints the number of lines and length of the longest line of that file maintaining a particular order, first lines then words and ended with the file name.
+
+	input-----> wc -l -L
+
+	expected output-----> 2    26 one.txt
+
+
+21. 
+Verify "wc [FILE] -L -l" prints the number of lines and length of the longest line of that file maintaining a particular order, first lines then words and ended with the file name.
+
+	input-----> wc -L -l
+
+	expected output-----> 2    26 one.txt
+
+
+22. 
+Verify "wc [FILE] -w -c" prints the total number of words and byte size of that file maintaining a particular order, first words then byte-size and ended with the file name.
+
+	input-----> wc -w -c
+
+	expected output-----> 10    48 one.txt
+
+
+23. 
+Verify "wc [FILE] -c -w" prints the total number of words and byte size of that file maintaining a particular order, first words then byte-size and ended with the file name.
+
+	input-----> wc -c -w
+
+	expected output-----> 10    48 one.txt
+
+
+24. 
+Verify "wc [FILE] -w -L" prints the total number of words and length of the longest line of that file maintaining a particular order, first words then length of the longest line and ended with the file name.
+
+	input-----> wc -w -L
+
+	expected output-----> 10    26 one.txt
+
+
+25. 
+Verify "wc [FILE] -L -w" prints the total number of words and length of the longest line of that file maintaining a particular order, first words then length of the longest line and ended with the file name.
+
+	input-----> wc -L -w
+
+	expected output-----> 10    26 one.txt
+
+
+26. 
+Verify "wc [FILE] -c -L" prints the byte-size and length of the longest line of that file maintaining a particular order, first byte-size then length of the longest line and ended with the file name.
+
+	input-----> wc -c -L
+
+	expected output-----> 48    26 one.txt
+
+
+27. 
+Verify "wc [FILE] -L -c" prints the byte-size and length of the longest line of that file maintaining a particular order, first byte-size then length of the longest line and ended with the file name.
+
+	input-----> wc -L -c
+
+	expected output-----> 48    26 one.txt
+
+
+28.
+Verify "wc [FILE] (any combination of -l & -w & -c) prints the numbers in a order of new-line counts, word counts and byte-size of the FILE, ended with the file name.
+
+	input----->   wc -l -w -c
+		   or, wc -l -c -w
+		   or, wc -w -l -c
+		   etc.....
+
+	expected output----->
+		2	10	26 one.txt
+
+29.
+Verify "wc [FILE] (any combination of -w & -c & -L) prints the numbers in a order of word counts, byte-size and length of the longest line of that FILE, ended with the file name.
+
+	input----->   wc -L -w -c
+		   or, wc -L -c -w
+		   or, wc -w -L -c
+		   or, wc -c -w -L
+		   etc.....
+
+	expected output----->
+		10	48	26 one.txt
+30.
+Verify "wc [FILE] (any combination of -l & -w & -c & -L) prints the numbers in a order of new-line counts, word counts, byte-size and length of the longest line of that FILE, ended with the file name.
+
+	input----->   wc -L -w -c
+		   or, wc -L -c -w
+		   or, wc -w -L -c
+		   or, wc -c -w -L
+		   etc.....
+
+	expected output----->
+		10	48	26 one.txt
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+TODO List:
+
+1. Get the Scaffold ready
+	-> Dropbox files
+	-> Git Bash
+	-> Sublime
+	-> Acceptance test & TODO list
+	-> run test, main.js, WCmodule.js, WCmoduleTest.js, one.txt
+
+2. I've to test the command line argument.
+	-> filter the arguments.
+	-> find the text file, if it is exists in the arguments or not.
+	-> separate the filename/text(standerd input) and option.
+		-> read user's given file
+		-> for standerd input I've to make an interface to read user's text.
+			-> get text from user.
+
+3. Generate the result as per option
+	-> find the number of option
+	-> Set range of option [-c, --bytes, --chars, -l, --lines -w, --words -L, --max-line-length, --help, --version]
+	-> Set main option [-c, -l, -w, -L, --help, --version ]
+	-> Set the alias for options,
+		-c, --bytes, --chars
+		-l, --lines
+		-w, --words
+		-L, --max-line-length
+	-> Validate the option(s) given by user
+		-> Check if the option(s) is within the range or not.
+		-> Set message for invalid option and exit.
+	-> Find count of option(s)
+		-> Put the option(s) into option array.
+		-> If option array contains either --help or --version then store that's content as result.
+		-> If option array contains both --help and --version then check which is in first position between them and store that's content as result.
+		-> If option array contains neither --help nor --version then set them as per priority [-l, -w, -c, -L]
+	-> Set option's(other than --help and --version) expected result
+		-> Set default option for wc is [-l, -w, -c], if no option is given by user.
+		-> Find word count (for -w or --words)
+			-> Split the text in to lines
+			-> Count the total number of words in each line
+			-> Store the count value as result
+		-> Find new line count (for -l or --lines)
+			-> Count the number of new lines in the text
+			-> Store the count as result
+		-> Find byte size count (for -c or --bytes or --chars)
+			-> Count the number of characters(letters, spaces, new lines and symbols)
+			-> Store the count as result
+		-> Find the longest line's length
+			-> Split the text into lines
+			-> Find the line which has highest length
+			-> Store it's length as result.
+	-> Put the result(s) in a result array.
+
+4. Display Result
+	-> convert the result array into string then display it and stop programming.
+
+5. Integrate all the parts.

@@ -1,0 +1,28 @@
+****ACCAPTANCE TEST****
+
+1. 
+Verify "cut [FILE] -d [arguments(say n)]" prints the nth byte of each lines of the file, in a column.
+
+	input-----> cut one.txt -d 1
+
+	expected output-----> h
+						  w
+
+2. 
+Verify "cut [FILE] -c [arguments(say n)]" prints the nth character of each lines of the file, in a column.
+
+	input-----> cut one.txt -c 1
+
+	expected output-----> h
+						  w
+
+3.
+Verify "cut [FILE] -f n" shows output as the nth field of the file.
+
+	input-----> cut one.txt -f 1
+
+	expected output----->	hello, this is a good day.
+							What do you think?
+
+4.
+							
